@@ -1,0 +1,30 @@
+.main span {
+    font-family: "Tegar";
+    font-size: 2vw;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+body {
+  background-color: #18191A;
+}
+
+.one:hover span:last-child {
+    width: 100%;
+  }
+  
+  .two:hover span {
+    width: 50%;
+  }
+  
+  .three:hover span {
+    height: 100%;
+  }
+  
+.btn {
+    font-family: "Tegar";
+    font-weight: 100;
+    font-size: 1.5vw;
+    letter-spacing: 1px;
+    margin: 0 auto;
+}
+  

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/add.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <% if(nav === true) { %>
+        <div class="fixed z-20  nav w-full text-[#ddd] py-3 px-40 flex justify-between ... items-center bg-[#0f1111] font-medium">
+            <div class="nav-left">
+               <h1 class="font-bold text-2xl">NexusNotes</h1>
+            </div>
+            <div class="n-right flex items-center justify-center gap-8">
+                <a href="/feed">Home</a>
+                <a href="/profile">Profile</a>
+                <a href="/addpost">Post</a>
+                <a href="/register" class="bg-red-600 py-1 px-4 hover:-translate-y-1 hover:scale-110 hover:bg-red-800 duration-300 ... font-medium">Sign Up</a>
+                <a href="/logout" class="bg-red-600 py-1 px-4 hover:-translate-y-1 hover:scale-110 hover:bg-red-800 duration-300 ... font-medium
+                ">Log out</a>
+            </div>
+        </div>
+
+
+   <% }  %>
+    

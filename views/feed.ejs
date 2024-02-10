@@ -1,0 +1,23 @@
+<%- include('./partials/header.ejs') %>
+=
+<div class="bg-zinc-700 w-full h-screen">
+    <div class="blogCard w-full bg-[#0f1111] flex justify-center">
+        <div class="workspace bg-[#242526] py-20 w-[80%] flex flex-col items-center">
+       <% posts.forEach((post) => { %>
+       
+         <div class="img bg-white w-[65%] flex flex-col items-center  m-10 rounded-md overflow-hidden text-black px-5 pt-5">
+            <img src="/images/uploads/<%= post.image %>" alt="">
+             <div class="tags flex flex-col items-center gap-10 py-[2vw]">
+                 <h1 class=" text-6xl font-['kajiro']"> <%= post.postTitle %> </h1>
+                 <h3 class="text-zinc-500 text-2xl text-center"> <%= post.postDes  %> </h3>
+             </div>
+              </div>
+      <% })  %>
+     
+        
+        </div>
+            
+        </div>
+</div>
+
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,25 @@
+<%- include('./partials/header.ejs') %>
+<div class="w-full h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images3.alphacoders.com/134/1349910.png');">
+   <div class="w-96 bg-zinc-900 text-white px-12 py-8 rounded-md  border-2 shadow-2xl">
+    
+      <h1 class="text-white capitalize text-center cursor-pointer font-semibold welcome hover:scale-110 hover:text-red-600 duration-300 ... ">LogIn to NexusNotes</h1>
+      <form action="/login" method="post" class="mb-2">
+         <input class="block my-5 py-3 w-full px-2  rounded-md border-2 text-zinc-900" type="text" name="username" placeholder="Username">
+         <input class="block my-5 py-3 w-full px-2  rounded-md border-2 text-zinc-900" type="password" name="password" placeholder="Password">
+         <button class="w-full bg-zinc-700 my-3 py-2 rounded-full  text-white hover:-translate-y-1 hover:scale-110 hover:bg-red-600 duration-300 ..." type="submit">LogIn</button>
+        </form> 
+        <% if(err.length > 0) { %>
+         <p class="error text-red-600"> <%= err %> </p>
+       <% } %>
+        <div class="gap-2 text-xs tags flex flex-col justify-center items-center">
+           <a href="#">forgot password ?</a>
+           <a href="/register" class="">If you don't have an account,Then Sign Up</a>
+         </div>
+        
+  
+     </div> 
+  
+   
+ </div>
+   
+<%- include('./partials/footer.ejs') %>

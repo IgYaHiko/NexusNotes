@@ -1,0 +1,83 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="main w-full   bg-[#18191A] text-white ">
+    <!-- hidden items -->
+    <form class="uploadP" hidden  action ="/profileUpload" method="post" enctype="multipart/form-data">
+       <input type="file" name="proimage">
+    </form>
+    <!-- for cover -->
+    <form class="uploadC" hidden  action ="/coverUpload" method="post" enctype="multipart/form-data">
+        <input type="file" name="coverimg">
+     </form>
+    <div class="profile  flex items-center justify-center flex-col">
+       
+        <div class="relative cover-pic w-[80%] h-[50vh] bg-white rounded-b-md overflow-hidden">
+            <span class="w-20 h-20 absolute bottom-5 right-5 rounded-full flex items-center justify-center bg-black cursor-pointer z-10 hover:-translate-y-1 hover:scale-110 hover:bg-red-600 duration-300 ...">
+                <i id="imgCover" class="ri-pencil-fill"></i>
+            </span>
+            <img class="object-cover w-[100%] h-[100%]" src="/images/uploads/<%= user.coverImage %>">
+            
+        </div>
+        <div class="relative bottom-20 z-10 flex flex-col items-center justify-center">
+            <div class="relative">
+                <span class="w-[60px] h-[60px] absolute bottom-1 right-0 rounded-full flex items-center justify-center bg-black hover:-translate-y-1 hover:scale-110 hover:bg-red-600 duration-300 ...">
+                    <i id="imgPro" class="ri-pencil-fill  cursor-pointer z-10 "></i>
+                </span>
+                <div class="profile-pic w-40 h-40 rounded-full bg-white overflow-hidden border-2 border-blue-500">
+                    <img src="/images/uploads/<%= user.profileImage %>" class="h-[100%] w-[100%] object-cover" alt="">
+                </div>
+            </div>
+            <div class="user-info  text-center  pt-2 pb-8  flex flex-col items-center justify-center ">
+                <h1 class="text-3xl mt-2 font-bold"><%= user.username %></h1>
+                <p class="text-1xl mt-2 text-zinc-300"><%= user.fullname %></p>
+                <p class="text-xs mt-2 w-[30%]"><%= user.bio %></p>
+                <div class="btn flex justify-center items-center gap-10">
+                    <a href="/addpost" class="font-['Tegar'] bg-red-600 text-white px-4 py-2 rounded mt-5 hover:-translate-y-1 hover:scale-110 hover:bg-red-700 duration-300 ...">Edit Profile</a>
+                    <a href="/addpost" class="font-['Tegar'] bg-red-600 text-white px-4 py-2 rounded mt-5 hover:-translate-y-1 hover:scale-110 hover:bg-red-700 duration-300 ...">Write Blog</a>
+                </div> 
+            </div>
+        </div>
+    </div>
+   <div class="blogCard w-full bg-[#0f1111] flex justify-center">
+   <div class="workspace bg-[#242526] w-[80%] flex flex-col items-center">
+  <% user.posts.forEach((post) => { %>
+    <div class="img bg-white w-[65%] flex flex-col items-center  m-10 rounded-md overflow-hidden text-black px-5 pt-5">
+        <img src="/images/uploads/<%= post.image %>" alt="">
+        <div class="tags flex flex-col items-center gap-10 py-[2vw]">
+            <h1 class=" text-6xl font-['kajiro']"> <%= post.postTitle %> </h1>
+            <h3 class="text-zinc-500 text-2xl text-center"> <%= post.postDes  %> </h3>
+        </div>
+         </div>
+ <% })  %>
+
+   
+   </div>
+       
+   </div>
+</div>
+ <script>
+let profilePic = document.querySelector('#imgPro');
+let proInput = document.querySelector(".uploadP input");
+
+profilePic.addEventListener("click", () => {
+    proInput.click();
+});
+
+proInput.addEventListener("change", () => {
+    document.querySelector(".uploadP").submit();
+});
+  
+let coverPic = document.querySelector("#imgCover");
+let coverInput = document.querySelector(".uploadC input");
+
+coverPic.addEventListener("click",() => {
+     coverInput.click();
+});
+
+coverInput.addEventListener("change",() => {
+     document.querySelector(".uploadC").submit();
+})
+
+ </script>
+
+<%- include('./partials/footer.ejs') %>
